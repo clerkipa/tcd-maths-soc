@@ -1,0 +1,26 @@
+# Site Settings
+title: "DU Mathsoc"
+description: "Official website of the Dublin University Mathematical Society"
+url: "https://github.com/clerkipa/tcd-maths-soc"  
+baseurl: "/tcd-maths-soc"               # The name of your repo (or leave empty "" if using username.github.io)
+
+# Build Settings
+markdown: kramdown
+theme: minima  # Optional, if you want to use Jekyll's built-in theme as a base
+plugins:
+  - jekyll-feed   # Generates an RSS feed for posts
+  - jekyll-seo-tag # Adds better metadata for search engines
+
+# Exclude folders/files from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - README.md
+
+# Collections (optional, for later)
+collections:
+  posts:
+    output: true
+
+permalink: /:categories/:title/

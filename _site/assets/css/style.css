@@ -1,0 +1,67 @@
+/* Basic Reset */
+body, h1, h2, h3, p, ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+  line-height: 1.6;
+  background: rgb(251, 180, 165);
+  color: #222;
+}
+
+/* Header */
+header img {
+  vertical-align: middle;
+  margin-right: 1rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+header nav a {
+  margin: 0 0.5rem;
+  text-decoration: none;
+  color: #0056b3;
+  font-weight: 500;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+main {
+  background: rgb(252, 255, 193);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+footer a {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
