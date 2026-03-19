@@ -29,7 +29,7 @@ Our committee is elected every year at our AGM.
 - **Webmaster**: Páraic Clerkin, 3rd Year Theoretical Physics
 - **3rd Year Reps**: Elias Rhodes, 3rd Year Maths and Philosophy
 - **3rd Year Reps**: Richard Sheahan, 3rd Year Mathematics
-- **2nd Year Rep**: Sahna, 2nd Year Mathematics
+- **2nd Year Rep**: Sahna Mulligan, 2nd Year Mathematics
 
 ----------------------------------------
 
