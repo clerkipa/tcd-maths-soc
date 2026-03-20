@@ -17,10 +17,11 @@ exclude:
   - Gemfile.lock
   - node_modules
   - README.md
-
+  - .jekyll-cache
 # Collections (optional, for later)
 collections:
   posts:
     output: true
 
 permalink: /:categories/:title/
+destination: docs
