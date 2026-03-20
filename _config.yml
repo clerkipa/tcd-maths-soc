@@ -1,8 +1,8 @@
 # Site Settings
 title: "DU Mathsoc"
 description: "Official website of the Dublin University Mathematical Society"
-url: "https://github.com/clerkipa/tcd-maths-soc"  
-baseurl: "/tcd-maths-soc"               # The name of your repo (or leave empty "" if using username.github.io)
+url: "https://mathsoc.ie"  
+baseurl: ""               # The name of your repo (or leave empty "" if using username.github.io)
 
 # Build Settings
 markdown: kramdown
