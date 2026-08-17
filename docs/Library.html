@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Library| DU Mathsoc</title>
+  <link rel="stylesheet" href="./MathsocAssets/style.css">
+</head>
+
+<body>
+  <img id="paperbackground" src="./MathsocAssets/paperbackground.jpeg" alt="PaperBackground">
+  <header>
+  <a href="https://mathsoc.ie/">
+    <img src="./MathsocAssets/MathsSocLogo.png" alt="MathSoc Logo" style="height: 140px;">
+  </a>
+  <h1 style="margin-bottom: 1rem;">DU Mathsoc</h1>
+  <div>
+  <nav id="topnavbar">
+    <a href="https://mathsoc.ie/">Home</a>
+    <a href="https://mathsoc.ie/About.html">About</a>
+    <a href="https://mathsoc.ie/Library.html">Library</a>
+    <a href="https://mathsoc.ie/ProblemSolving.html">Problem Solving</a>
+    <a href="./Constitution.html">Constitution & Minutes</a>
+  </nav>
+  </div>
+</header>
+  <main>
+    <h1 id="the-mathsoc-library">The Mathsoc Library</h1>
+    <hr>
+<p>DU Mathsoc has a wide range of mathematical books in its library available for members to browse and borrow. The collection is managed by our librarian Yara Recinella.</p>
+
+<p style="margin-bottom: 1rem;">To browse some of our collection come to the Mathsoc room and peruse the shelves or if you are looking for a specific title search our catalogue below. Not only do we have a wide range of textbooks to help develop your knowledge, but also books on the history of maths and more lighthearted reads like "Pasta By Design" in case you ever wanted to know what parametric curves define farfalle.</p>
+<h2 id="borrowing-books">Borrowing books</h2>
+<hr>
+<p style="margin-bottom: 1rem;">To borrow one of our books email or if you have other queries regarding the library email Yara at <a href="mailto:librarian.maths@tcd.ie">librarian.maths@tcd.ie</a>.</p>
+<h2>Our Collection</h2>
+<hr>
+<p>You can search our catelogue by title or author using the search bar below. </p>
+<div style="display: flex; justify-content: center;">
+<input type="text" id="search-box" placeholder="Search by Title or Author" oninput="search()">
+</div>
+  <div class="container">
+  <table class="table" id="libSearch">
+  <thead>
+  <tr>
+  <th scope="col" id="libSearchTitle" >Title</th>
+  <th scope="col" id="libSearchAuthor" class = "authorCol">Author</th>
+  </tr>
+  </thead>
+  <tbody id="Table-Body">
+  </tbody> 
+  </table>
+  </div>
+
+  </main>
+  <footer>
+  <p>© 2026 DU Mathsoc. All rights reserved.</p>
+  <p>
+    <a href="https://www.instagram.com/tcdmathsoc/" target="_blank">Instagram</a> |
+    <a href="mailto:maths@csc.tcd.ie">Email Us</a>
+  </p>
+</footer>
+
+<!--Search script-->
+
+<script>
+    const webAppUrl = "https://script.google.com/macros/s/AKfycbzBUWPncgxcluAw8idaL6cNQM7wO64F_3eV2ZMIl2y0Zic7mZy1I8-PPwpIf--hAz1qDQ/exec";
+    let cachedData = [];
+    // Gets Data from the Google App Script
+    fetch(webAppUrl)
+   .then(response => response.json())
+   .then(data => {
+    cachedData = data;
+    })
+    .catch(error => console.error("Error loading spreadsheet data:", error));
+    //Makes the table
+    function displayTable(dataArray) {
+    let tableBody = document.getElementById("Table-Body");
+    tableBody.innerHTML = ""; 
+    dataArray.forEach(row => {
+    let tableRow = document.createElement("tr");
+    let titleData = document.createElement("td");
+    titleData.textContent = row[0];
+    tableRow.appendChild(titleData);
+    let authorData = document.createElement("td");
+    authorData.textContent = row[1];
+    authorData.classList.add("authorCol");
+    tableRow.appendChild(authorData);
+    tableBody.appendChild(tableRow);
+    });
+    }
+    //Searches the sheet
+    function search() {
+    let searchText = document.getElementById("search-box").value.toUpperCase();
+    if (searchText.trim() === "") {
+            displayTable([]);
+            return;
+    }
+    let filterData = cachedData.filter(row => {
+    let title = row[0] ? row[0].toString().toUpperCase() : "";
+    let author = row[1] ? row[1].toString().toUpperCase() : "";
+    return title.includes(searchText) || author.includes(searchText);
+    });
+    let bestResults = filterData.slice(0, 5);   
+    displayTable(bestResults);
+    }
+</script>
+
+
+</body></html>

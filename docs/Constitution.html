@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Constitution | DU Mathsoc</title>
+  <link rel="stylesheet" href="./MathsocAssets/style.css">
+</head>
+
+<body>
+  <img id="paperbackground" src="./MathsocAssets/paperbackground.jpeg" alt="PaperBackground">
+  <header>
+  <a href="https://mathsoc.ie/">
+    <img src="./MathsocAssets/MathsSocLogo.png" alt="MathSoc Logo" style="height: 140px;">
+  </a>
+  <h1 style="margin-bottom: 1rem;">DU Mathsoc</h1>
+  <div>
+  <nav id="topnavbar">
+    <a href="https://mathsoc.ie/">Home</a>
+    <a href="https://mathsoc.ie/About.html">About</a>
+    <a href="https://mathsoc.ie/Library.html">Library</a>
+    <a href="https://mathsoc.ie/ProblemSolving.html">Problem Solving</a>
+    <a href="./Constitution.html">Constitution & Minutes</a>
+  </nav>
+  </div>
+</header>
+
+  <main>
+   <h1>Constitution & Minutes</h1>
+   <hr>
+   <p>
+    The constitution of the DU Mathsoc outlines the structure, rules and mission of the society. It can be ammended by a simple majority of the commitee. A copy of the latest version is available <a href = "./MathsocAssets/Mathsoc_Constitution.pdf">here</a>. 
+   </p>
+   <h2> Minutes</h2>
+   <hr>
+   <p style="margin-bottom:1rem;">The commitee also publishes the minutes of all comittee meetings. These outline what was discussed and decided upon by the commitee. An archive of past minutes can be found down below. Please note this website only contains minutes from the start of the 104th session onwards. </p>
+   <div class="resultsBox">
+  <div class="minutesBar">
+    <div class="minutesButtons" style="font-weight: 500;">
+            <button id="prevButton" style="text-align: center;" onclick="changeSlide(-5)">Prev</button>
+            <button id="nextButton" style="text-align: center;" onclick="changeSlide(5)">Next</button>
+    </div>
+    <div class="minutesDate" style="font-weight: 500;">
+    <p>Date</p>
+    </div>
+  </div>
+  <table id="minutesTable" style="width: 100%; padding: 0.5rem;">
+  <tbody>
+  <tr id="row1">
+  <td><a id="link1" href="#" style="color: rgb(0,0,0);">Download</a></td>
+  <td id="date1" class="minutesDate"></td>
+  </tr>
+  <tr id="row2">
+  <td><a id="link2" href="#"  style="color: rgb(0,0,0);">Download</a></td>
+  <td id="date2" class="minutesDate"></td>
+  </tr>
+  <tr id="row3">
+  <td><a id="link3" href="#"  style="color: rgb(0,0,0);">Download</a></td>
+  <td id="date3" class="minutesDate"></td>
+  </tr>
+  <tr id="row4">
+  <td><a id="link4" href="#"  style="color: rgb(0,0,0);">Download</a></td>
+  <td id="date4" class="minutesDate"></td>
+  </tr>
+  <tr id="row5">
+  <td><a id="link5" href="#" style="color: rgb(0,0,0);">Download</a></td>
+  <td id="date5" class="minutesDate"></td>
+  </tr>
+  </tbody>
+  </table>
+   </div>
+  </main>
+  <footer>
+  <p>© 2026 DU Mathsoc. All rights reserved.</p>
+  <p>
+    <a href="https://www.instagram.com/tcdmathsoc/" target="_blank">Instagram</a> |
+    <a href="mailto:maths@csc.tcd.ie">Email Us</a>
+  </p>
+</footer>
+<script>
+//Add new minutes to the BOTTOM
+const pastMinutes =[
+{
+link: "./MathsocAssets/Minutes/MathsocMinutes14-04-26.pdf",
+date: "14-04-26"
+}
+]
+let currentIndex = pastMinutes.length -1;
+const prevBtn = document.getElementById("prevButton");
+const nextBtn = document.getElementById("nextButton");
+function updateDisplay() {
+for (let i = 1; i <= 5; i++) {
+    const linkEl = document.getElementById(`link${i}`);
+    const dateEl = document.getElementById(`date${i}`);
+    const rowEl = document.getElementById(`row${i}`);
+    const dataIndex = currentIndex - (i - 1);
+    
+if (pastMinutes[dataIndex]) {
+    rowEl.style.display = "table-row";
+    linkEl.href = pastMinutes[dataIndex].link;
+    linkEl.innerText = "Download"; 
+    dateEl.innerText = pastMinutes[dataIndex].date;     
+}
+else {
+    rowEl.style.display = "none"; 
+}
+}
+if (currentIndex >= pastMinutes.length - 1) {
+    nextBtn.style.visibility = "hidden";
+}
+else {
+    nextBtn.style.visibility = "visible";
+}
+if (currentIndex - 4 <= 0) {
+    prevBtn.style.visibility = "hidden";
+} 
+else {
+prevBtn.style.visibility = "visible";
+}
+}
+
+function changeSlide(direction) {
+let newIndex = currentIndex + direction;
+if (newIndex < 0) {
+    newIndex = 0;
+}
+if (newIndex >= pastMinutes.length) {
+newIndex = pastMinutes.length - 1;
+}
+currentIndex = newIndex;
+updateDisplay();
+}
+updateDisplay();
+</script>
+</body>
+</html>

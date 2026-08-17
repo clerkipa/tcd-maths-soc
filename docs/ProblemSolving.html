@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Problem Solving and Competitions | DU Mathsoc</title>
+  <link rel="stylesheet" href="./MathsocAssets/style.css">
+</head>
+
+<body>
+  <img id="paperbackground" src="./MathsocAssets/paperbackground.jpeg" alt="PaperBackground">
+  <header>
+  <a href="https://mathsoc.ie/">
+    <img src="./MathsocAssets/MathsSocLogo.png" alt="MathSoc Logo" style="height: 140px;">
+  </a>
+  <h1 style="margin-bottom: 1rem;">DU Mathsoc</h1>
+  <div>
+  <nav id="topnavbar">
+    <a href="https://mathsoc.ie/">Home</a>
+    <a href="https://mathsoc.ie/About.html">About</a>
+    <a href="https://mathsoc.ie/Library.html">Library</a>
+    <a href="https://mathsoc.ie/ProblemSolving.html">Problem Solving</a>
+    <a href="./Constitution.html">Constitution & Minutes</a>
+  </nav>
+  </div>
+</header>
+
+  <main>
+    <h1 id="the-dublin-university-mathematical-society">Problem Solving and Competitions</h1>
+    <hr>
+<p style="margin-bottom: 1rem;">Here you can find information on the problem solving group and any upcoming competitions. If you would like more information or have questions please email us or contact our Quizmaster Andrei. </p>
+<h2>Problem Solving Group</h2>
+<hr>
+<p style="margin-bottom: 1rem;">Our Quizmaster Andrei runs a weekly problem solving group where members can hone their skills tackling difficult questions from various fields of maths. This also serves as a great prep if you're interested in participating in maths contests. The details or when and where will be released later when semester starts.</p>
+<h2>Upcoming Competitions</h2>
+<hr>
+<p style="margin-bottom: 1rem;">Nothing yet but be sure to check back once semester beings. </p>
+<h2 id="events">Recent Results</h2>
+<hr>
+<p style="margin-bottom: 1rem;">You can use the box below to view recent achievements by Mathsoc members, if you have a recent achievement and wish for it to be displayed here please contact the committee. Unfortunately this only dates back to the start of the 104th session.</p>
+ <div class="resultsBox">
+    <div class="resultsBoxButtons">
+            <button id="prevButton" onclick="changeSlide(-1)">Prev</button>
+            <h3 id="resultsTitle" class="resultsTitleDesk"></h3>
+            <button id="nextButton" onclick="changeSlide(1)">Next</button>
+    </div>
+    <img id="resultsImage">
+    <div class="resultsTextBox">
+            <div class="resultsTitleMobile">
+            <h3 id="resultsTitleMob"></h3>
+            <hr>
+            </div>
+            <p id="resultsDesc"></p>
+    </div>
+    </div>
+  
+</ul>
+</main>
+<footer>
+<p>&copy; 2026 DU Mathsoc. All rights reserved.</p>
+  <p>
+    <a href="https://www.instagram.com/tcdmathsoc/" target="_blank">Instagram</a> |
+    <a href="mailto:maths@csc.tcd.ie">Email Us</a>
+  </p>
+</footer>
+
+<!--Script for the recent results box-->
+
+<script>
+ // Store slides, add new ones here AT THE BOTTOM.
+const slides = [
+{
+    image: "./MathsocAssets/ResultsPhotos/MathsSocLogo.png",
+    title: "End of records",
+    desc: "Sorry, this is as early as we have recorded on this site."
+},
+{
+    image: "./MathsocAssets/ResultsPhotos/IMC2026.jpeg",
+    title: "IMC 2026",
+    desc: "From left to right; Odhran Keenan, 2nd year mathematics, Andrei Ion, 4th year mathematics, Adam Kielty, Lecturer and Team Leader, Maria Kiiko, 3rd year mathematics and economics joint honour and Syrus Chan 2nd year mathematics and economics*. This team represented Trinity College Dublin for the first time at the International Maths Competition for Universities in Bulgaria. They respectively earned 19,19,12 and 16 points an impressive result for newcomers. Note: This event happened over summer, course information is given by what course they will be in during the 2026/2027 semester."
+}
+        ];
+let currentIndex = slides.length -1;
+const resultsImage = document.getElementById("resultsImage");
+const resultsTitle = document.getElementById("resultsTitle");
+const resultsTitleMob = document.getElementById("resultsTitleMob");
+const resultsDesc = document.getElementById("resultsDesc");
+const prevBtn = document.getElementById("prevButton");
+const nextBtn = document.getElementById("nextButton");
+function updateDisplay(){
+resultsImage.src = slides[currentIndex].image;
+resultsTitle.innerText = slides[currentIndex].title;
+resultsTitleMob.innerText = slides[currentIndex].title;
+resultsDesc.innerText = slides[currentIndex].desc;
+if (currentIndex == 0) {
+    prevBtn.style.visibility = "hidden";
+}
+else{
+    prevBtn.style.visibility = "visible";
+}
+if (currentIndex == slides.length - 1) {
+    nextBtn.style.visibility = "hidden";
+}
+else{
+    nextBtn.style.visibility = "visible";
+}
+}
+function changeSlide(direction) {
+currentIndex = currentIndex + direction;
+resultsImage.src = slides[currentIndex].image;
+resultsTitle.innerText = slides[currentIndex].title;
+resultsTitleMob.innerText = slides[currentIndex].title;
+resultsDesc.innerText = slides[currentIndex].desc;
+updateDisplay();
+}
+updateDisplay();
+</script>
+
+</body>
+</html>
