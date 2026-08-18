@@ -251,7 +251,7 @@ padding: 0.75rem;
 }
 /*Mobile stuff*/
 
-@media screen and (max-width: 430px){
+@media screen and (max-width: 460px){
 body{
 max-width: 90%;
 font-size: 18px;
